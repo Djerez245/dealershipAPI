@@ -1,8 +1,8 @@
-package dao;
+package com.pluralsight.dealership_spring.dao;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
-import pluralsight.Dealership;
+import com.pluralsight.dealership_spring.model.Dealership;
 
 import javax.sql.DataSource;
 import java.sql.Connection;

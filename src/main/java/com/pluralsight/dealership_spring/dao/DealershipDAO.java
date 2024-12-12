@@ -1,8 +1,8 @@
-package dao;
+package com.pluralsight.dealership_spring.dao;
 
 
 
-import pluralsight.Dealership;
+import com.pluralsight.dealership_spring.model.Dealership;
 
 import java.util.List;
 

@@ -1,9 +1,9 @@
-package pluralsight;
+package com.pluralsight.dealership_spring.model;
 
 
-import dao.AdminUserDAO;
-import dao.AdminUserDAOMysqlImpl;
-import dao.VehiclesDAOMySqlImpl;
+import com.pluralsight.dealership_spring.dao.AdminUserDAO;
+import com.pluralsight.dealership_spring.dao.AdminUserDAOMysqlImpl;
+import com.pluralsight.dealership_spring.dao.VehiclesDAOMySqlImpl;
 import org.apache.commons.dbcp2.BasicDataSource;
 
 import java.io.IOException;

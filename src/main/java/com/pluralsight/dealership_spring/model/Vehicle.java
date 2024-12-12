@@ -1,4 +1,4 @@
-package pluralsight;
+package com.pluralsight.dealership_spring.model;
 
 public class Vehicle {
     private final int vin;

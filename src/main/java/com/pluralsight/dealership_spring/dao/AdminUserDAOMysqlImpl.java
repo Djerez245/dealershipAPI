@@ -1,9 +1,9 @@
-package dao;
+package com.pluralsight.dealership_spring.dao;
 
 
 
-import pluralsight.LeaseContract;
-import pluralsight.SalesContract;
+import com.pluralsight.dealership_spring.model.LeaseContract;
+import com.pluralsight.dealership_spring.model.SalesContract;
 
 import javax.sql.DataSource;
 import java.sql.Connection;
