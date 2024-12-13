@@ -26,7 +26,7 @@ public class VehicleController {
     }
 
     // Create
-    @RequestMapping(method = RequestMethod.PUT, path = "/addvehicle")
+    @RequestMapping("/addvehicle")
     @ResponseStatus(value = HttpStatus.CREATED)
     public Vehicle addVehicle(@RequestBody Vehicle vehicle){
         vDao.addVehicle(vehicle);
@@ -42,32 +42,34 @@ public class VehicleController {
 
     // Search for a vehicle with parameters
     // TODO results come up blank
-    @GetMapping(path = "/search/vin/{vin}")
-    public List<Vehicle> searchByVin(@PathVariable(name = "id") Integer vin){
+    @GetMapping(path = "/search/{vin}")
+    public List<Vehicle> searchByVin(@PathVariable(name = "vin") Integer vin){
         return vDao.findVehicleByVin(vin);
     }
 
-    @GetMapping(path = "/search/{make}")
+    @GetMapping(path = "/search/make/{make}")
     public List<Vehicle> searchByMake(@PathVariable(name = "make") String make){
+
+
         return vDao.findVehicleByMake(make);
     }
 
-    @GetMapping(path = "/search/{model}")
+    @GetMapping(path = "/search/model/{model}")
     public List<Vehicle> searchByModel(@PathVariable(name = "model") String model){
         return vDao.findVehicleByModel(model);
     }
 
-    @GetMapping(path = "/search/{type}")
+    @GetMapping(path = "/search/type/{type}")
     public List<Vehicle> searchByType(@PathVariable(name = "type") String type){
         return vDao.findVehiclesByType(type);
     }
 
-    @GetMapping(path = "/search/{color}")
+    @GetMapping(path = "/search/color/{color}")
     public List<Vehicle> searchByColor(@PathVariable(name = "color") String color){
-        return vDao.findVehiclesByType(color);
+        return vDao.findVehicleByColor(color);
     }
 
-    @GetMapping(path = "/search/{year}")
+    @GetMapping(path = "/search/year/{year}")
     public List<Vehicle> searchByYear(@PathVariable(name = "year") Integer year){
         return vDao.findVehicleByYear(year);
     }

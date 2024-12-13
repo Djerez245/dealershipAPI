@@ -83,7 +83,7 @@ public class VehiclesDAOMySqlImpl implements VehiclesDAO {
                 vin = rs.getInt("vin");
                 year = rs.getInt("year");
                 make = rs.getString("make");
-                model = rs.getString("com/pluralsight/dealership_spring/model");
+                model = rs.getString("model");
                 vehicleType = rs.getString("type");
                 color = rs.getString("color");
                 odometer = rs.getInt("odometer");
@@ -123,7 +123,7 @@ public class VehiclesDAOMySqlImpl implements VehiclesDAO {
                 vin = rs.getInt("vin");
                 year = rs.getInt("year");
                 make = rs.getString("make");
-                model = rs.getString("com/pluralsight/dealership_spring/model");
+                model = rs.getString("model");
                 vehicleType = rs.getString("type");
                 color = rs.getString("color");
                 odometer = rs.getInt("odometer");
@@ -163,7 +163,7 @@ public class VehiclesDAOMySqlImpl implements VehiclesDAO {
                 vin = rs.getInt("vin");
                 year = rs.getInt("year");
                 make = rs.getString("make");
-                model = rs.getString("com/pluralsight/dealership_spring/model");
+                model = rs.getString("model");
                 vehicleType = rs.getString("type");
                 color = rs.getString("color");
                 odometer = rs.getInt("odometer");
@@ -203,7 +203,7 @@ public class VehiclesDAOMySqlImpl implements VehiclesDAO {
                 vin = rs.getInt("vin");
                 year = rs.getInt("year");
                 make = rs.getString("make");
-                model = rs.getString("com/pluralsight/dealership_spring/model");
+                model = rs.getString("model");
                 vehicleType = rs.getString("type");
                 color = rs.getString("color");
                 odometer = rs.getInt("odometer");
@@ -243,7 +243,7 @@ public class VehiclesDAOMySqlImpl implements VehiclesDAO {
                 vin = rs.getInt("vin");
                 year = rs.getInt("year");
                 make = rs.getString("make");
-                model = rs.getString("com/pluralsight/dealership_spring/model");
+                model = rs.getString("model");
                 vehicleType = rs.getString("type");
                 color = rs.getString("color");
                 odometer = rs.getInt("odometer");
@@ -285,7 +285,7 @@ public class VehiclesDAOMySqlImpl implements VehiclesDAO {
                 vin = rs.getInt("vin");
                 year = rs.getInt("year");
                 make = rs.getString("make");
-                model = rs.getString("com/pluralsight/dealership_spring/model");
+                model = rs.getString("model");
                 vehicleType = rs.getString("type");
                 color = rs.getString("color");
                 odometer = rs.getInt("odometer");
@@ -327,7 +327,7 @@ public class VehiclesDAOMySqlImpl implements VehiclesDAO {
                 vin = rs.getInt("vin");
                 year = rs.getInt("year");
                 make = rs.getString("make");
-                model = rs.getString("com/pluralsight/dealership_spring/model");
+                model = rs.getString("model");
                 vehicleType = rs.getString("type");
                 color = rs.getString("color");
                 odometer = rs.getInt("odometer");
@@ -367,7 +367,7 @@ public class VehiclesDAOMySqlImpl implements VehiclesDAO {
                 vin = rs.getInt("vin");
                 year = rs.getInt("year");
                 make = rs.getString("make");
-                model = rs.getString("com/pluralsight/dealership_spring/model");
+                model = rs.getString("model");
                 vehicleType = rs.getString("type");
                 color = rs.getString("color");
                 odometer = rs.getInt("odometer");
