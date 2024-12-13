@@ -2,20 +2,25 @@ package com.pluralsight.dealership_spring.dao;
 
 
 
+import com.pluralsight.dealership_spring.model.Contract;
 import com.pluralsight.dealership_spring.model.LeaseContract;
 import com.pluralsight.dealership_spring.model.SalesContract;
+import com.pluralsight.dealership_spring.model.Vehicle;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
 import javax.sql.DataSource;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 
+@Component
 public class AdminUserDAOMysqlImpl implements AdminUserDAO {
 
     DataSource dataSource;
-    LeaseContract lc;
-    SalesContract sc;
 
+    @Autowired
     public AdminUserDAOMysqlImpl(DataSource dataSource) {
         this.dataSource = dataSource;
     }
@@ -87,4 +92,98 @@ public class AdminUserDAOMysqlImpl implements AdminUserDAO {
             throw new RuntimeException(e);
         }
     }
+
+    @Override
+    public SalesContract findSalesContractById(int id) {
+
+        try(Connection connection = dataSource.getConnection()){
+
+            PreparedStatement statement = connection.prepareStatement("""
+                    SELECT *
+                    FROM sales_contract
+                    JOIN vehicles
+                    ON sales_contract.vin = vehicles.vin
+                    WHERE contract_id = ?;
+                    """);
+
+            statement.setInt(1, id);
+            ResultSet rs = statement.executeQuery();
+
+            if (rs.next()){
+                String date = rs.getString("vehicle_date");
+                String firstName = rs.getString("first_name");
+                String lastName = rs.getString("last_name");
+                String email = rs.getString("email");
+                int dealershipId = rs.getInt("dealership_id");
+                int vin = rs.getInt("vin");
+                int year = rs.getInt("year");
+                String make = rs.getString("make");
+                String model = rs.getString("model");
+                String type = rs.getString("type");
+                String color = rs.getString("color");
+                int odometer = rs.getInt("odometer");
+                double price = rs.getDouble("price");
+                boolean isSold = rs.getBoolean("sold");
+                double taxAmount = rs.getDouble("salestax_amount");
+                double totalPrice = rs.getDouble("total_price");
+                double processingFee = rs.getDouble("processing_fee");
+                double recordingFee = rs.getDouble("recording_fee");
+                boolean financing = rs.getBoolean("finacing");
+                double monthlyPayment = rs.getDouble("monthly_payment");
+
+                Vehicle v = new Vehicle(dealershipId, vin, year, make, model, type, color, odometer, price, isSold);
+                return new SalesContract(date, firstName, lastName, email, v, financing);
+            }
+
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        return null;
+    }
+
+    @Override
+    public LeaseContract findLeaseContractById(int id) {
+
+        try(Connection connection = dataSource.getConnection()){
+
+            PreparedStatement statement = connection.prepareStatement("""
+                    SELECT *
+                    FROM sales_contract
+                    JOIN vehicles
+                    ON sales_contract.vin = vehicles.vin
+                    WHERE contract_id = ?;
+                    """);
+
+            statement.setInt(1, id);
+            ResultSet rs = statement.executeQuery();
+
+            if (rs.next()){
+                String date = rs.getString("vehicle_date");
+                String firstName = rs.getString("first_name");
+                String lastName = rs.getString("last_name");
+                String email = rs.getString("email");
+                int dealershipId = rs.getInt("dealership_id");
+                int vin = rs.getInt("vin");
+                int year = rs.getInt("year");
+                String make = rs.getString("make");
+                String model = rs.getString("model");
+                String type = rs.getString("type");
+                String color = rs.getString("color");
+                int odometer = rs.getInt("odometer");
+                double price = rs.getDouble("price");
+                boolean isSold = rs.getBoolean("sold");
+                double taxAmount = rs.getDouble("expected_endingValue");
+                double totalPrice = rs.getDouble("leasing_fee");
+                double monthlyPayment = rs.getDouble("monthly_payment");
+
+                Vehicle v = new Vehicle(dealershipId, vin, year, make, model, type, color, odometer, price, isSold);
+                return new LeaseContract(date, firstName, lastName, email, v);
+            }
+
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        return null;
+    }
+
 }

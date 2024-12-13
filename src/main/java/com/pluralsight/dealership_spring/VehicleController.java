@@ -26,8 +26,8 @@ public class VehicleController {
     }
 
     // Create
-    @RequestMapping("/addvehicle")
-    @ResponseStatus(value = HttpStatus.CREATED)
+    @PostMapping("/add")
+    @ResponseStatus(code = HttpStatus.CREATED)
     public Vehicle addVehicle(@RequestBody Vehicle vehicle){
         vDao.addVehicle(vehicle);
         return vehicle;

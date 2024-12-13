@@ -1,6 +1,7 @@
 package com.pluralsight.dealership_spring.model;
 
 public class Vehicle {
+    private final int dealershipId;
     private final int vin;
     private final int year;
     private final String make;
@@ -12,7 +13,8 @@ public class Vehicle {
     private final boolean sold;
 
 
-    public Vehicle(int vin, int year, String make, String model, String vehicleType, String color, int odometer, double price, boolean sold) {
+    public Vehicle(int dealershipId, int vin, int year, String make, String model, String vehicleType, String color, int odometer, double price, boolean sold) {
+        this.dealershipId = dealershipId;
         this.vin = vin;
         this.year = year;
         this.make = make;
@@ -34,9 +36,13 @@ public class Vehicle {
         this.odometer = 0;
         this.price = 0;
         this.sold = false;
+        dealershipId = 0;
     }
 
 
+    public int getDealershipId() {
+        return dealershipId;
+    }
 
     public int getVin() {
         return vin;
@@ -75,6 +81,9 @@ public class Vehicle {
         return price;
     }
 
+    public boolean isSold() {
+        return sold;
+    }
 
     public String toString(){
         return String.format("VIN: %-10d | Year: %-5d | Make: %-8s | Model: %-10s | Type: %-8s | Color: %-8s | Odometer: %-10d | Price: %.2f",

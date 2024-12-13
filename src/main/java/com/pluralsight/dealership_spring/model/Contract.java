@@ -21,9 +21,8 @@ public abstract class Contract {
         this.lastName = lastName;
         this.customerEmail = customerEmail;
         this.vehicleSold = vehicleSold;
-
-
     }
+
 
     public String getDateOfContract() {
         return dateOfContract;

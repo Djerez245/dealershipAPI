@@ -69,7 +69,7 @@ public class UserInterface {
                 case 0 -> buyOrLeaseCar();
                 case 1 -> showSearchMenu();
                 case 2 -> printVehicleList(vDao.findAllVehicle());
-                case 3 -> addCar(scanner);
+                case 3 -> System.out.println("gfjkld");//addCar(scanner);
                 case 4 -> removeCar(scanner);
                 case 5 -> appRunning = false;
                 default -> System.out.println("\nSORRY WRONG INPUT TRY AGAIN!");
@@ -169,35 +169,35 @@ public class UserInterface {
         printVehicleList(vDao.findVehicleByYear(year));
     }
 
-    // method to add a new car
-    private void addCar(Scanner scanner) {
-        System.out.println("VIN: ");
-        int vin = scanner.nextInt();
-        scanner.nextLine();
-        System.out.println("Make: ");
-        String make = scanner.nextLine();
-        System.out.println("Model: ");
-        String model = scanner.nextLine();
-        System.out.println("Year: ");
-        int year = scanner.nextInt();
-        scanner.nextLine();
-        System.out.println("Color: ");
-        String color = scanner.nextLine();
-        System.out.println("Mileage: ");
-        int mileage = scanner.nextInt();
-        scanner.nextLine();
-        System.out.println("Vehicle Type: ");
-        String vehicleType = scanner.nextLine();
-        System.out.println("Price: ");
-        int price = scanner.nextInt();
-        scanner.nextLine();
-        boolean sold = false;
-        Vehicle vehicle = new Vehicle(vin, year, make, model, vehicleType, color, mileage, price, sold);
-        dealership.addVehicle(vehicle);
-        vDao.addVehicle(vehicle);
-        System.out.println("\nVEHICLE ADDED!");
-
-    }
+     // method to add a new car
+//    private void addCar(Scanner scanner) {
+//        System.out.println("VIN: ");
+//        int vin = scanner.nextInt();
+//        scanner.nextLine();
+//        System.out.println("Make: ");
+//        String make = scanner.nextLine();
+//        System.out.println("Model: ");
+//        String model = scanner.nextLine();
+//        System.out.println("Year: ");
+//        int year = scanner.nextInt();
+//        scanner.nextLine();
+//        System.out.println("Color: ");
+//        String color = scanner.nextLine();
+//        System.out.println("Mileage: ");
+//        int mileage = scanner.nextInt();
+//        scanner.nextLine();
+//        System.out.println("Vehicle Type: ");
+//        String vehicleType = scanner.nextLine();
+//        System.out.println("Price: ");
+//        int price = scanner.nextInt();
+//        scanner.nextLine();
+//        boolean sold = false;
+//        Vehicle vehicle = new Vehicle(dealershipId vin, year, make, model, vehicleType, color, mileage, price, sold);
+//        dealership.addVehicle(vehicle);
+//        vDao.addVehicle(vehicle);
+//        System.out.println("\nVEHICLE ADDED!");
+//
+//    }
 
     // method to remove car
     private void removeCar(Scanner scanner) throws IOException {

@@ -23,6 +23,7 @@ public class VehiclesDAOMySqlImpl implements VehiclesDAO {
     @Override
     public ArrayList<Vehicle> findAllVehicle() {
         ArrayList<Vehicle> allVehicles = new ArrayList<>();
+        int dealershipId;
         int vin;
         int year;
         String make;
@@ -40,6 +41,7 @@ public class VehiclesDAOMySqlImpl implements VehiclesDAO {
             ResultSet rs = statement.executeQuery();
 
             while (rs.next()){
+                dealershipId = rs.getInt("dealership_id");
                 vin = rs.getInt("vin");
                 year = rs.getInt("year");
                 make = rs.getString("make");
@@ -50,7 +52,7 @@ public class VehiclesDAOMySqlImpl implements VehiclesDAO {
                 price = rs.getDouble("price");
                 sold = rs.getBoolean("sold");
 
-                Vehicle v = new Vehicle(vin, year, make, model, vehicleType, color, odometer, price, sold);
+                Vehicle v = new Vehicle(dealershipId, vin, year, make, model, vehicleType, color, odometer, price, sold);
                 allVehicles.add(v);
             }
         } catch (SQLException e) {
@@ -62,6 +64,7 @@ public class VehiclesDAOMySqlImpl implements VehiclesDAO {
     @Override
     public ArrayList<Vehicle> findVehicleByMake(String make) {
         ArrayList<Vehicle> vehicleByMake = new ArrayList<>();
+        int dealershipId;
         int vin;
         int year;
         String model;
@@ -80,6 +83,7 @@ public class VehiclesDAOMySqlImpl implements VehiclesDAO {
             ResultSet rs = statement.executeQuery();
 
             while (rs.next()){
+                dealershipId = rs.getInt("dealership_id");
                 vin = rs.getInt("vin");
                 year = rs.getInt("year");
                 make = rs.getString("make");
@@ -90,7 +94,7 @@ public class VehiclesDAOMySqlImpl implements VehiclesDAO {
                 price = rs.getDouble("price");
                 sold = rs.getBoolean("sold");
 
-                Vehicle v = new Vehicle(vin, year, make, model, vehicleType, color, odometer, price, sold);
+                Vehicle v = new Vehicle(dealershipId, vin, year, make, model, vehicleType, color, odometer, price, sold);
                 vehicleByMake.add(v);
             }
         } catch (SQLException e) {
@@ -102,6 +106,7 @@ public class VehiclesDAOMySqlImpl implements VehiclesDAO {
     @Override
     public ArrayList<Vehicle> findVehicleByModel(String model) {
         ArrayList<Vehicle> vehicleByModel = new ArrayList<>();
+        int dealershipId;
         int vin;
         int year;
         String make;
@@ -120,6 +125,7 @@ public class VehiclesDAOMySqlImpl implements VehiclesDAO {
             ResultSet rs = statement.executeQuery();
 
             while (rs.next()){
+                dealershipId = rs.getInt("dealership_id");
                 vin = rs.getInt("vin");
                 year = rs.getInt("year");
                 make = rs.getString("make");
@@ -130,7 +136,7 @@ public class VehiclesDAOMySqlImpl implements VehiclesDAO {
                 price = rs.getDouble("price");
                 sold = rs.getBoolean("sold");
 
-                Vehicle v = new Vehicle(vin, year, make, model, vehicleType, color, odometer, price, sold);
+                Vehicle v = new Vehicle(dealershipId, vin, year, make, model, vehicleType, color, odometer, price, sold);
                 vehicleByModel.add(v);
             }
         } catch (SQLException e) {
@@ -142,6 +148,7 @@ public class VehiclesDAOMySqlImpl implements VehiclesDAO {
     @Override
     public ArrayList<Vehicle> findVehicleByColor(String color) {
         ArrayList<Vehicle> vehicleByColor = new ArrayList<>();
+        int dealershipId;
         int vin;
         int year;
         String make;
@@ -160,6 +167,7 @@ public class VehiclesDAOMySqlImpl implements VehiclesDAO {
             ResultSet rs = statement.executeQuery();
 
             while (rs.next()){
+                dealershipId = rs.getInt("dealership_id");
                 vin = rs.getInt("vin");
                 year = rs.getInt("year");
                 make = rs.getString("make");
@@ -170,7 +178,7 @@ public class VehiclesDAOMySqlImpl implements VehiclesDAO {
                 price = rs.getDouble("price");
                 sold = rs.getBoolean("sold");
 
-                Vehicle v = new Vehicle(vin, year, make, model, vehicleType, color, odometer, price, sold);
+                Vehicle v = new Vehicle(dealershipId, vin, year, make, model, vehicleType, color, odometer, price, sold);
                 vehicleByColor.add(v);
             }
         } catch (SQLException e) {
@@ -182,6 +190,7 @@ public class VehiclesDAOMySqlImpl implements VehiclesDAO {
     @Override
     public ArrayList<Vehicle> findVehicleByVin(int vin) {
         ArrayList<Vehicle> vehicleByVin = new ArrayList<>();
+        int dealershipId;
         int year;
         String make;
         String model;
@@ -200,6 +209,7 @@ public class VehiclesDAOMySqlImpl implements VehiclesDAO {
             ResultSet rs = statement.executeQuery();
 
             if (rs.next()){
+                dealershipId = rs.getInt("dealership_id");
                 vin = rs.getInt("vin");
                 year = rs.getInt("year");
                 make = rs.getString("make");
@@ -210,7 +220,7 @@ public class VehiclesDAOMySqlImpl implements VehiclesDAO {
                 price = rs.getDouble("price");
                 sold = rs.getBoolean("sold");
 
-                Vehicle v = new Vehicle(vin, year, make, model, vehicleType, color, odometer, price, sold);
+                Vehicle v = new Vehicle(dealershipId, vin, year, make, model, vehicleType, color, odometer, price, sold);
                 vehicleByVin.add(v);
             }
         } catch (SQLException e) {
@@ -222,6 +232,7 @@ public class VehiclesDAOMySqlImpl implements VehiclesDAO {
     @Override
     public ArrayList<Vehicle> findVehiclesByType(String vehicleType) {
         ArrayList<Vehicle> vehicleByType = new ArrayList<>();
+        int dealershipId;
         int vin;
         int year;
         String make;
@@ -240,6 +251,7 @@ public class VehiclesDAOMySqlImpl implements VehiclesDAO {
             ResultSet rs = statement.executeQuery();
 
             while (rs.next()){
+                dealershipId = rs.getInt("dealership_id");
                 vin = rs.getInt("vin");
                 year = rs.getInt("year");
                 make = rs.getString("make");
@@ -250,7 +262,7 @@ public class VehiclesDAOMySqlImpl implements VehiclesDAO {
                 price = rs.getDouble("price");
                 sold = rs.getBoolean("sold");
 
-                Vehicle v = new Vehicle(vin, year, make, model, vehicleType, color, odometer, price, sold);
+                Vehicle v = new Vehicle(dealershipId, vin, year, make, model, vehicleType, color, odometer, price, sold);
                 vehicleByType.add(v);
             }
         } catch (SQLException e) {
@@ -262,6 +274,7 @@ public class VehiclesDAOMySqlImpl implements VehiclesDAO {
     @Override
     public ArrayList<Vehicle> findVehiclesByPriceRange(double minPrice, double maxPrice) {
         ArrayList<Vehicle> vehicleByPrice = new ArrayList<>();
+        int dealershipId;
         int vin;
         int year;
         String make;
@@ -282,6 +295,7 @@ public class VehiclesDAOMySqlImpl implements VehiclesDAO {
             ResultSet rs = statement.executeQuery();
 
             while (rs.next()){
+                dealershipId = rs.getInt("dealership_id");
                 vin = rs.getInt("vin");
                 year = rs.getInt("year");
                 make = rs.getString("make");
@@ -292,7 +306,7 @@ public class VehiclesDAOMySqlImpl implements VehiclesDAO {
                 price = rs.getDouble("price");
                 sold = rs.getBoolean("sold");
 
-                Vehicle v = new Vehicle(vin, year, make, model, vehicleType, color, odometer, price, sold);
+                Vehicle v = new Vehicle(dealershipId, vin, year, make, model, vehicleType, color, odometer, price, sold);
                 vehicleByPrice.add(v);
             }
         } catch (SQLException e) {
@@ -304,6 +318,7 @@ public class VehiclesDAOMySqlImpl implements VehiclesDAO {
     @Override
     public ArrayList<Vehicle> findVehiclesByMileage(int minOdometer, int maxOdometer) {
         ArrayList<Vehicle> vehicleByMileage = new ArrayList<>();
+        int dealershipId;
         int vin;
         int year;
         String make;
@@ -324,6 +339,7 @@ public class VehiclesDAOMySqlImpl implements VehiclesDAO {
             ResultSet rs = statement.executeQuery();
 
             while (rs.next()){
+                dealershipId = rs.getInt("dealership_id");
                 vin = rs.getInt("vin");
                 year = rs.getInt("year");
                 make = rs.getString("make");
@@ -334,7 +350,7 @@ public class VehiclesDAOMySqlImpl implements VehiclesDAO {
                 price = rs.getDouble("price");
                 sold = rs.getBoolean("sold");
 
-                Vehicle v = new Vehicle(vin, year, make, model, vehicleType, color, odometer, price, sold);
+                Vehicle v = new Vehicle(dealershipId, vin, year, make, model, vehicleType, color, odometer, price, sold);
                 vehicleByMileage.add(v);
             }
         } catch (SQLException e) {
@@ -346,6 +362,7 @@ public class VehiclesDAOMySqlImpl implements VehiclesDAO {
     @Override
     public ArrayList<Vehicle> findVehicleByYear(int year) {
         ArrayList<Vehicle> vehicleByYear = new ArrayList<>();
+        int dealershipId;
         int vin;
         String make;
         String model;
@@ -364,6 +381,7 @@ public class VehiclesDAOMySqlImpl implements VehiclesDAO {
             ResultSet rs = statement.executeQuery();
 
             while (rs.next()){
+                dealershipId = rs.getInt("dealership_id");
                 vin = rs.getInt("vin");
                 year = rs.getInt("year");
                 make = rs.getString("make");
@@ -374,7 +392,7 @@ public class VehiclesDAOMySqlImpl implements VehiclesDAO {
                 price = rs.getDouble("price");
                 sold = rs.getBoolean("sold");
 
-                Vehicle v = new Vehicle(vin, year, make, model, vehicleType, color, odometer, price, sold);
+                Vehicle v = new Vehicle(dealershipId, vin, year, make, model, vehicleType, color, odometer, price, sold);
                 vehicleByYear.add(v);
             }
         } catch (SQLException e) {
@@ -386,6 +404,7 @@ public class VehiclesDAOMySqlImpl implements VehiclesDAO {
     @Override
     public void addVehicle(Vehicle v){
         try (Connection connection = dataSource.getConnection()) {
+            int dealershipId = 0;
             int vin = 0;
             int year = 0;
             String make = "";
@@ -397,21 +416,23 @@ public class VehiclesDAOMySqlImpl implements VehiclesDAO {
             boolean sold = false;
 
             PreparedStatement statement = connection.prepareStatement("""
-                    INSERT INTO vehicles VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?);
-                    """, Statement.RETURN_GENERATED_KEYS);
+                    INSERT INTO vehicles VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?);
+                    """);
 
-            statement.setInt(1, vin);
-            statement.setInt(2, year);
-            statement.setString(3, make);
-            statement.setString(4, model);
-            statement.setString(5, vehicleType);
-            statement.setString(6, color);
-            statement.setInt(7, odometer);
-            statement.setDouble(8, price);
-            statement.setBoolean(9, sold);
+            statement.setInt(1, v.getDealershipId());
+            statement.setInt(2, v.getVin());
+            statement.setInt(3, v.getYear());
+            statement.setString(4, v.getMake());
+            statement.setString(5, v.getModel());
+            statement.setString(6, v.getVehicleType());
+            statement.setString(7, v.getColor());
+            statement.setInt(8, v.getOdometer());
+            statement.setDouble(9, v.getPrice());
+            statement.setBoolean(10, v.isSold());
 
             int rowsAffected = statement.executeUpdate();
             System.out.println(rowsAffected + "rows inserted");
+
 
         } catch (SQLException e) {
             throw new RuntimeException(e);
