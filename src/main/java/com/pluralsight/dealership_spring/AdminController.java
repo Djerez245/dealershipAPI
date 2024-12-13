@@ -4,12 +4,12 @@ import com.pluralsight.dealership_spring.dao.AdminUserDAO;
 import com.pluralsight.dealership_spring.model.LeaseContract;
 import com.pluralsight.dealership_spring.model.SalesContract;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
-
 import java.util.List;
 
 @RestController
-@RequestMapping(path = "/admin")
+@RequestMapping(path = "/vehicle/admin")
 public class AdminController {
     private AdminUserDAO aDao;
 
@@ -18,22 +18,24 @@ public class AdminController {
         this.aDao = aDao;
     }
 
-    @GetMapping("/{id}")
+    @GetMapping("/sales/{id}")
     public List<SalesContract> searchForSalesContract(@RequestParam int id){
         return aDao.findSalesContractById(id);
     }
 
-    @GetMapping("/addsales")
+    @PostMapping("/addsales")
+    @ResponseStatus(code = HttpStatus.CREATED)
     public void addSalesContract(@RequestBody SalesContract sc){
         aDao.addSale(sc);
     }
 
-    @GetMapping("/addlease")
+    @PostMapping("/addlease")
+    @ResponseStatus(code = HttpStatus.CREATED)
     public void addLeaseContract(@RequestBody LeaseContract lc){
         aDao.addLease(lc);
     }
 
-    @GetMapping("/{id}")
+    @GetMapping("/lease/{id}")
     public List<LeaseContract> searchForLeaseContract(@RequestParam int id){
         return aDao.findLeaseContractById(id);
     }
