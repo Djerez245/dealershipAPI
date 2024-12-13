@@ -14,6 +14,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 @Component
 public class AdminUserDAOMysqlImpl implements AdminUserDAO {
@@ -94,7 +95,8 @@ public class AdminUserDAOMysqlImpl implements AdminUserDAO {
     }
 
     @Override
-    public SalesContract findSalesContractById(int id) {
+    public ArrayList<SalesContract> findSalesContractById(int id) {
+        ArrayList<SalesContract> results = new ArrayList<>();
 
         try(Connection connection = dataSource.getConnection()){
 
@@ -132,17 +134,18 @@ public class AdminUserDAOMysqlImpl implements AdminUserDAO {
                 double monthlyPayment = rs.getDouble("monthly_payment");
 
                 Vehicle v = new Vehicle(dealershipId, vin, year, make, model, type, color, odometer, price, isSold);
-                return new SalesContract(date, firstName, lastName, email, v, financing);
+                results.add(new SalesContract(date, firstName, lastName, email, v, financing));
             }
 
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
-        return null;
+        return results;
     }
 
     @Override
-    public LeaseContract findLeaseContractById(int id) {
+    public ArrayList<LeaseContract> findLeaseContractById(int id) {
+        ArrayList<LeaseContract> results = new ArrayList<>();
 
         try(Connection connection = dataSource.getConnection()){
 
@@ -177,13 +180,13 @@ public class AdminUserDAOMysqlImpl implements AdminUserDAO {
                 double monthlyPayment = rs.getDouble("monthly_payment");
 
                 Vehicle v = new Vehicle(dealershipId, vin, year, make, model, type, color, odometer, price, isSold);
-                return new LeaseContract(date, firstName, lastName, email, v);
+                results.add(new LeaseContract(date, firstName, lastName, email, v));
             }
 
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
-        return null;
+        return results;
     }
 
 }
