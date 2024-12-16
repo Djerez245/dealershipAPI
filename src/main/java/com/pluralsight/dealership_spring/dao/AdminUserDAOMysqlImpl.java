@@ -67,7 +67,7 @@ public class AdminUserDAOMysqlImpl implements AdminUserDAO {
         try (Connection connection = dataSource.getConnection()) {
 
             PreparedStatement statement = connection.prepareStatement("""
-                    INSERT INTO sales_contract VALUES(null, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ? )
+                    INSERT INTO lease_contract VALUES(null, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ? )
                     """);
             statement.setString(1, leaseContract.getDateOfContract());
             statement.setString(2, leaseContract.getFirstName());
