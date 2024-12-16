@@ -126,12 +126,7 @@ public class AdminUserDAOMysqlImpl implements AdminUserDAO {
                 int odometer = rs.getInt("odometer");
                 double price = rs.getDouble("price");
                 boolean isSold = rs.getBoolean("sold");
-                double taxAmount = rs.getDouble("salestax_amount");
-                double totalPrice = rs.getDouble("total_price");
-                double processingFee = rs.getDouble("processing_fee");
-                double recordingFee = rs.getDouble("recording_fee");
                 boolean financing = rs.getBoolean("finacing");
-                double monthlyPayment = rs.getDouble("monthly_payment");
 
                 Vehicle v = new Vehicle(dealershipId, vin, year, make, model, type, color, odometer, price, isSold);
                 results.add(new SalesContract(date, firstName, lastName, email, v, financing));

@@ -19,7 +19,7 @@ public class AdminController {
     }
 
     @GetMapping("/sales/{id}")
-    public List<SalesContract> searchForSalesContract(@RequestParam int id){
+    public List<SalesContract> searchForSalesContract(@PathVariable int id){
         return aDao.findSalesContractById(id);
     }
 
@@ -36,7 +36,7 @@ public class AdminController {
     }
 
     @GetMapping("/lease/{id}")
-    public List<LeaseContract> searchForLeaseContract(@RequestParam int id){
+    public List<LeaseContract> searchForLeaseContract(@PathVariable int id){
         return aDao.findLeaseContractById(id);
     }
 
